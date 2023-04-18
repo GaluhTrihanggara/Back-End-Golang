@@ -14,6 +14,7 @@ func New() *echo.Echo {
 	jwtMiddleware := middleware.JWT([]byte(constants.SECRET_JWT))
 	// Route / to handler function
 	e.GET("/users", controllers.GetUsersController, jwtMiddleware)
+	e.GET("/authors", controllers.GetUsersController, jwtMiddleware)
 	e.GET("/users/:id", controllers.GetUserController, jwtMiddleware)
 	e.POST("/users", controllers.CreateUserController)
 	e.POST("/users/login", controllers.LoginUserController)
